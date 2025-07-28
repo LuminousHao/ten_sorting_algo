@@ -1,7 +1,12 @@
 package test;
 
 import algorithms.comparison.BubbleSort;
+import algorithms.comparison.InsertionSort;
+import algorithms.comparison.QuickSort;
+import algorithms.comparison.SelectionSort;
 import utils.SortValidator;
+
+import java.util.Arrays;
 
 public abstract class BaseTemplate<T extends Comparable<T>> {
     // 抽象排序方法，子类必须实现
@@ -19,21 +24,29 @@ public abstract class BaseTemplate<T extends Comparable<T>> {
         return a.compareTo(b) < 0;
     }
 
+
     // 主测试方法
     public static void main(String[] args) {
-        // 示例：测试BubbleSort
-        BaseTemplate<Integer> sorter = new BubbleSort<>();
 
-        // 生成测试数据
-        Integer[] testData = SortValidator.generateRandomArray(10_000, 0, 100_000);
+        //自定义数据
+        Double[] customData = {3.3,10.0,1.1,9.9,4.4,8.8,6.6,7.7};
+        BaseTemplate<Double> doubleSorter = new QuickSort<>();
+        doubleSorter.sort(customData);
+        System.out.println(Arrays.toString(customData));
 
-        // 测试性能并验证结果
-        SortValidator.PerformanceResult result =
-                SortValidator.testPerformance(sorter, testData.clone(), true);
-
-        System.out.println("--- Sorting Algorithm Performance ---");
-        System.out.println("Algorithm: " + sorter.getClass().getSimpleName());
-        System.out.println(result);
-        System.out.println("------------------------------------");
+//        // 示例：测试BubbleSort
+//        BaseTemplate<Integer> sorter = new BubbleSort<>();
+//
+//        // 生成测试数据
+//        Integer[] testData = SortValidator.generateRandomArray(10_000, 0, 100_000);
+//
+//        // 测试性能并验证结果
+//        SortValidator.PerformanceResult result =
+//                SortValidator.testPerformance(sorter, testData.clone(), true);
+//        System.out.println("=========");
+//        System.out.println("--- Sorting Algorithm Performance ---");
+//        System.out.println("Algorithm: " + sorter.getClass().getSimpleName());
+//        System.out.println(result);
+//        System.out.println("------------------------------------");
     }
 }
