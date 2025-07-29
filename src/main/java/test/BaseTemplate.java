@@ -1,9 +1,6 @@
 package test;
 
-import algorithms.comparison.BubbleSort;
-import algorithms.comparison.InsertionSort;
-import algorithms.comparison.QuickSort;
-import algorithms.comparison.SelectionSort;
+import algorithms.comparison.*;
 import utils.SortValidator;
 
 import java.util.Arrays;
@@ -30,7 +27,7 @@ public abstract class BaseTemplate<T extends Comparable<T>> {
 
         //自定义数据
         Double[] customData = {3.3,10.0,1.1,9.9,4.4,8.8,6.6,7.7};
-        BaseTemplate<Double> doubleSorter = new QuickSort<>();
+        BaseTemplate<Double> doubleSorter = new MergeSort<>();
         doubleSorter.sort(customData);
         System.out.println(Arrays.toString(customData));
 
